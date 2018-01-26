@@ -37,7 +37,12 @@ In order to set this up, you'll want to ensure the following defaults are set to
 
 As well, pay special attention to the LdapGroups, in my basic example there is a read and write group, you'll need your users in LDAP to be associated with the groups you choose in order to get all the access bits working. You can tweak this to your liking, or alternatively send a PR to make this more extensible.
 
-The middleware uses Basic Auth to get credentials, you'll want to set up any app the uses this on https as Basic Auth over http is not secure.
+**The middleware uses Basic Auth to get credentials, you'll want to set up any app that uses this on https as Basic Auth over http is not secure.**
+
+If you setup the example.go app, you should be able to:
+
+* GET to: http://localhost:8000/health, and send Basic Auth credentials for a user with readAccess and get a valid response
+* POST to: http://localhost:8000/write, and send Basic Auth credentials for a user with writeAccess and get a valid response
 
 Author: [Sonatype](https://www.sonatype.com/)
 Contributor: [Sonatype Nexus Community](https://github.com/sonatype-nexus-community)
